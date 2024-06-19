@@ -20,7 +20,6 @@ import {
   DELETE_ORDER_FAIL,
 } from "../constants/orderConstants";
 import axios from "axios";
-import {server} from "../constants/config"
 
 export const newOrder = (order) => async (dispatch) => {
   try {
@@ -30,7 +29,7 @@ export const newOrder = (order) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(`${server}/api/v1/order/new`, order, config);
+    const { data } = await axios.post("/api/v1/order/new", order, config);
     dispatch({
       type: CREATE_ORDER_SUCCESS,
       payload: data,
@@ -46,7 +45,7 @@ export const newOrder = (order) => async (dispatch) => {
 export const myOrders = () => async (dispatch) => {
   try {
     dispatch({ type: MY_ORDERS_REQUEST });
-    const { data } = await axios.get(`${server}/api/v1/orders/me`);
+    const { data } = await axios.get("/api/v1/orders/me");
     dispatch({
       type: MY_ORDERS_SUCCESS,
       payload: data.orders,
@@ -63,7 +62,7 @@ export const myOrders = () => async (dispatch) => {
 export const getOrder = (id) => async (dispatch) => {
   try {
     dispatch({ type: SINGLE_ORDER_REQUEST });
-    const { data } = await axios.get(`${server}/api/v1/order/${id}`);
+    const { data } = await axios.get(`/api/v1/order/${id}`);
     dispatch({
       type: SINGLE_ORDER_SUCCESS,
       payload: data.order,
@@ -79,7 +78,7 @@ export const getOrder = (id) => async (dispatch) => {
 export const getAllAdminOrders=()=>async(dispatch)=>{
   try {
     dispatch({type:ALL_ORDERS_REQUEST})
-    const {data}=await axios.get(`${server}/api/v1/admin/orders`)
+    const {data}=await axios.get('/api/v1/admin/orders')
     dispatch({
       type:ALL_ORDERS_SUCCESS,
       payload:data.orders
@@ -100,7 +99,7 @@ export const updateAdminOrder=(id,orderData)=>async(dispatch)=>{
         'Content-Type':'application/json'
       }
     }
-    const {data}=await axios.put(`${server}/api/v1/admin/order/${id}`,orderData,config)
+    const {data}=await axios.put(`/api/v1/admin/order/${id}`,orderData,config)
     dispatch({
       type:UPDATE_ORDER_SUCCESS,
       payload:data.success
@@ -118,7 +117,7 @@ export const updateAdminOrder=(id,orderData)=>async(dispatch)=>{
 export const deleteAdminOrder=(id)=>async(dispatch)=>{
   try {
     dispatch({type:DELETE_ORDER_REQUEST})
-    const {data}=await axios.delete(`${server}/api/v1/admin/order/${id}`)
+    const {data}=await axios.delete(`/api/v1/admin/order/${id}`)
     dispatch({
       type:DELETE_ORDER_SUCCESS,
       payload:data.success

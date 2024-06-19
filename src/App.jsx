@@ -42,13 +42,12 @@ import ReviewList from './components/Admin/ReviewList'
 import Contact from './components/Contact/Contact'
 import About from './components/About/About'
 import PageNotFound from './components/Page Not Found/PageNotFound'
-import { server } from './constants/config'
 
 function App() {
   const [apikey,setApikey]=useState("")
 
   async function getStripeApiKey(){
-    const {data}=await axios.get(`${server}/api/v1/stripeapikey`)
+    const {data}=await axios.get("/api/v1/stripeapikey")
 
     setApikey(data.stripeApiKey)
   }
