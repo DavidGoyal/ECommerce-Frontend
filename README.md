@@ -1,8 +1,20 @@
-# React + Vite
+# MERN E-COMMERCE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hi! My name is **David Goyal**, I have created this website to learn MERN Stack.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Install Dependencies
+
+**For Backend** - `cd Backend` ` npm i`
+
+**For Frontend** - `cd Frontend` ` npm i`
+
+## Env Variables
+
+Make Sure to Create a .env file in backend directory and add appropriate variables in order to use the app.
+
+
+## Author
+
+
+**LinkedIn** Click [Here](https://www.linkedin.com/in/david-goyal) 
